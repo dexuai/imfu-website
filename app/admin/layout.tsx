@@ -1,11 +1,54 @@
+'use client';
+
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { LayoutDashboard, FileText, Wrench, FlaskConical, LogOut } from 'lucide-react';
+import { supabase } from '@/lib/supabase/client';
 
 export default function AdminLayout({
     children,
 }: {
     children: React.ReactNode;
 }) {
+    const router = useRouter();
+    const [loading, setLoading] = useState(true);
+    const [user, setUser] = useState<any>(null);
+
+    useEffect(() => {
+        // Check auth status
+        supabase.auth.getUser().then(({ data: { user } }) => {
+            if (!user) {
+                router.push('/login');
+            } else {
+                setUser(user);
+                setLoading(false);
+            }
+        });
+
+        // Listen for auth changes
+        const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+            if (event === 'SIGNED_OUT') {
+                router.push('/login');
+            }
+        });
+
+        return () => subscription.unsubscribe();
+    }, [router]);
+
+    const handleLogout = async () => {
+        await supabase.auth.signOut();
+        router.push('/login');
+    };
+
+    if (loading) {
+        return (
+            <div className="min-h-screen bg-gray-950 flex items-center justify-center">
+                <div className="text-gray-500">验证中...</div>
+            </div>
+        );
+    }
+
     return (
         <div className="flex min-h-screen bg-gray-950">
             {/* Sidebar */}
@@ -48,14 +91,17 @@ export default function AdminLayout({
                     </Link>
                 </nav>
 
-                <div className="pt-6 border-t border-white/10">
-                    <Link
-                        href="/"
-                        className="flex items-center gap-3 px-4 py-3 text-gray-500 hover:text-red-400 rounded-lg transition-colors"
+                <div className="pt-6 border-t border-white/10 space-y-2">
+                    <div className="px-4 py-2 text-xs text-gray-600 truncate">
+                        {user?.email}
+                    </div>
+                    <button
+                        onClick={handleLogout}
+                        className="flex items-center gap-3 px-4 py-3 text-gray-500 hover:text-red-400 rounded-lg transition-colors w-full"
                     >
                         <LogOut className="w-5 h-5" />
-                        返回前台
-                    </Link>
+                        退出登录
+                    </button>
                 </div>
             </aside>
 
