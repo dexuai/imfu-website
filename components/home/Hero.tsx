@@ -17,30 +17,29 @@ export default function Hero() {
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                 </span>
-                20年行业底蕴 · 软硬结合开发 · 一人公司实战
+                德旭AI (DeXu AI) · 智能技术解决方案
             </div>
 
             {/* Title */}
             <h1 className="text-5xl md:text-8xl font-black mb-8 text-white leading-[1.1] tracking-tight">
-                不只是 AI 工具，<br />
-                更是基于业务的<span className="text-gradient-main">解决方案</span>
+                连接现实世界，<br />
+                构建<span className="text-gradient-main">智能未来</span>
             </h1>
 
             {/* Description */}
             <p className="text-gray-400 max-w-3xl mx-auto text-lg md:text-xl leading-relaxed mb-12 font-light">
-                我是 <span className="text-white font-medium">老傅</span>。我将医疗器械高管的管理经验、硬核的软硬件开发能力，<br className="hidden md:block" />
-                与前沿 AI 技术深度融合，解决真实世界的效率难题。
+                我们致力于将前沿 AI 技术与实际业务场景深度融合，为企业和个人提供<span className="text-white font-medium">高效、落地</span>的智能化解决方案。
             </p>
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
                 <Link href="#solutions" className="group relative px-8 py-4 bg-white text-black rounded-xl font-bold transition-all hover:scale-105 active:scale-95 overflow-hidden">
-                    <span className="relative z-10">查看实战方案</span>
+                    <span className="relative z-10">查看解决方案</span>
                     <div className="absolute inset-0 bg-emerald-100 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
                 </Link>
 
-                <Link href="#logs" className="glass-card px-8 py-4 rounded-xl font-bold border border-white/10 hover:bg-white/5 hover:border-white/20 transition-all flex items-center gap-2">
-                    关注开发日志
+                <Link href="/assistant" className="glass-card px-8 py-4 rounded-xl font-bold border border-white/10 hover:bg-white/5 hover:border-white/20 transition-all flex items-center gap-2">
+                    体验 AI 助手
                 </Link>
             </div>
 
