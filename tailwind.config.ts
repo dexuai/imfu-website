@@ -11,10 +11,15 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        brand: {
+          blue: '#2563eb', // Tech Blue - Professional & Logical
+          dark: '#0f172a', // Dark Gray - Steady & Medical background
+          yellow: '#facc15', // Bright Yellow - Inspiration & "Aha!" moments
+        },
         emerald: {
-            400: '#34d399',
-            500: '#10b981',
-            600: '#059669',
+          400: '#34d399',
+          500: '#10b981',
+          600: '#059669',
         }
       },
       fontFamily: {

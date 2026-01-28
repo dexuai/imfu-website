@@ -8,21 +8,24 @@ export default function Solutions() {
             color: "emerald",
             title: "医疗 AI 实战产品",
             desc: "基于20年法规经验，通过AI自动化生成TR技术文档及临床评价，缩短30%申报周期。",
-            linkText: "了解方案"
+            linkText: "了解方案",
+            href: "#"
         },
         {
             icon: <GraduationCap className="w-8 h-8 text-blue-500" />,
             color: "blue",
             title: "AI 助教系列产品",
             desc: "针对儿童科学教育的AI辅助系统，将抽象原理具象化，实现真正的启发式教学。",
-            linkText: "获取软件"
+            linkText: "获取软件",
+            href: "/assistant"
         },
         {
             icon: <Cpu className="w-8 h-8 text-purple-500" />,
             color: "purple",
             title: "硬件 AI 开发方案",
             desc: "提供负压系统、应急救援等场景的AI硬件集成方案，让物理世界拥有大脑。",
-            linkText: "实验室案例"
+            linkText: "实验室案例",
+            href: "#"
         }
     ];
 
@@ -41,7 +44,7 @@ export default function Solutions() {
                         </div>
                         <h3 className="text-2xl font-bold text-white mb-4">{item.title}</h3>
                         <p className="text-gray-400 leading-relaxed mb-8 text-sm">{item.desc}</p>
-                        <Link href="#" className={`inline-flex items-center text-sm font-black text-${item.color}-500 uppercase tracking-widest hover:text-${item.color}-400 transition-colors`}>
+                        <Link href={item.href} className={`inline-flex items-center text-sm font-black text-${item.color}-500 uppercase tracking-widest hover:text-${item.color}-400 transition-colors`}>
                             {item.linkText} <ArrowRight className="ml-2 w-4 h-4" />
                         </Link>
                     </div>
